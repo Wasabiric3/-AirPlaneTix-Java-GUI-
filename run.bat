@@ -2,7 +2,7 @@
 cd /d "%~dp0"
 echo Compiling AirplaneTicketingSystem...
 if not exist "bin" mkdir "bin"
-javac -d bin AirplaneTicketingSystem.java
+javac -cp ".;mysql-connector-j-8.4.0.jar" -d bin AirplaneTicketingSystem.java
 if errorlevel 1 (
     echo Compilation failed!
     pause
@@ -10,5 +10,6 @@ if errorlevel 1 (
 )
 echo Compilation successful! Starting application...
 echo.
-java -cp bin AirplaneTicketingSystem
+java -cp "bin;mysql-connector-j-8.4.0.jar" AirplaneTicketingSystem
 pause
+
